@@ -9,7 +9,7 @@ def map_parse (options, fname):
 
     for elements in conf:
         slov={}
-
+        param = ''
         el = conf[elements]
 
 
@@ -19,11 +19,11 @@ def map_parse (options, fname):
                     param = el[values]
                 else:
                     for init in el[values]:
-                        param = '(' + init + '|' + str(el[values][init]) + ')'
-
+                        if not init == 'Count':
+                            param += str(el[values][init]) +'\n'
                 slov.update({values:param})
             if (values == 'Addresses'):
-                adresses = el[values].split(';')
+                adresses = el[values].split('; ')
                 slov.update({values:adresses})
             if(values in options):
                 slov.update({values:el[values]})
