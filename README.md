@@ -1,1 +1,1 @@
-"# Map parser for Fpinger"
+"# Map" 
